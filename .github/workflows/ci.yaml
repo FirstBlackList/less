@@ -2,6 +2,11 @@ name: Test
 
 on: [push]
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   test:
     # start где запуск
@@ -46,3 +51,11 @@ jobs:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
+
+#      # публикация отчёта
+#     - uses: peaceiris/actions-gh-pages@v2
+#       if: always()
+#       env:
+#         PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#         PUBLISH_BRANCH: gh-pages
+#         PUBLISH_DIR: allure-history
